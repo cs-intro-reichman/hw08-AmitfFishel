@@ -49,7 +49,7 @@ class PlayList {
         String trackInSeparateLine = "";
         for (int i = 0; i < this.size; i++) {
             trackInSeparateLine += tracks[i];
-            trackInSeparateLine += "" + tracks[i] + "/n" ;    
+            trackInSeparateLine += "\n" + this.getTrack(i);              //"" + tracks[i] + "/n" ;    
                 
         }
         return trackInSeparateLine;
