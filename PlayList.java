@@ -108,22 +108,7 @@ class PlayList {
         }
         return false;
     }
-       // if (i < 0 || i > this.size || this.size == this.maxSize) return false; 
-       // tracks[i] = track;
-      //  size++;
-      //  for (int j = i; j < this.size -1; j++) {
-      //      tracks[j+1] = tracks[j];   
-      //  }
-    
-       // return true;
-
-   // }  
-    
-    
-     
-    /** Removes the track in the given index from this list.
-     *  If the list is empty, or the given index is negative or too big for this list, 
-     *  does nothing and returns -1. */
+      
     public void remove(int i) {
         if (this.getSize() != 0 && i >= 0 && i < this.getSize()) {
             if (i == this.size - 1)
