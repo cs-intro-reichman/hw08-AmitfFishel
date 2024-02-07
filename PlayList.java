@@ -94,16 +94,30 @@ class PlayList {
      *  is full, does nothing and returns false. Otherwise, inserts the track and
      *  returns true. */
     public boolean add(int i, Track track) {
-        if (i < 0 || i > this.size || this.size == this.maxSize) return false; 
-        tracks[i] = track;
-        size++;
-        for (int j = i; j < this.size -1; j++) {
-            tracks[j+1] = tracks[j];   
+        if (i >= 0 && i <= this.size && this.size < this.maxSize) {
+            if (i == this.size)
+                this.add(track);
+            else {
+                for (int j = this.getSize(); j > i; j--) {
+                    this.tracks[j] = this.tracks[j - 1];
+                }
+                this.tracks[i] = track;
+                this.size = size + 1;
+            }
+            return true;
         }
+        return false;
+    }
+       // if (i < 0 || i > this.size || this.size == this.maxSize) return false; 
+       // tracks[i] = track;
+      //  size++;
+      //  for (int j = i; j < this.size -1; j++) {
+      //      tracks[j+1] = tracks[j];   
+      //  }
     
-        return true;
+       // return true;
 
-    }  
+   // }  
     
     
      
@@ -129,8 +143,8 @@ class PlayList {
      *  is negative or too big for this list, does nothing. */
     public void remove(String title) {
         int index = this.indexOf(title);
-            if(this.getSize() != 0 && index >= 0 && index <= this.getSize()) 
-            this.remove(index);
+        if (index != -1 && this.getSize() != 0 && index >= 0 && index < this.getSize())    
+                this.remove(index);
             
         }
     
